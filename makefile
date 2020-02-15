@@ -16,7 +16,7 @@ start: ## Start local server
 stop: ## Stop local server
 	$(SYMFONY) server:stop 
 
-cc:
+cc: vendor
 	$(CONSOLE) cache:clear	 
 
 ##
@@ -33,7 +33,7 @@ stan: vendor
 	vendor/bin/phpstan analyse --no-progress --memory-limit=2G -n -l 7 src/
 
 test: ## run all tests
-test: cs stan
+test: cc cs stan
 
 ##
 ## Build
