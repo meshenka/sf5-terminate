@@ -2,7 +2,7 @@
 
 PHP = php 
 SYMFONY = symfony
-COMPOSER = $(PHP) composer
+COMPOSER = composer
 CONSOLE = $(PHP) bin/console 
 
 ##
@@ -16,7 +16,8 @@ start: ## Start local server
 stop: ## Stop local server
 	$(SYMFONY) server:stop 
 
-
+cc:
+	$(CONSOLE) cache:clear	 
 
 ##
 ## Quality
