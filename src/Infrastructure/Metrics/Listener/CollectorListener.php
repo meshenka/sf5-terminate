@@ -16,7 +16,7 @@ class CollectorListener implements EventSubscriberInterface
         $this->collector = $collector;
     }
 
-    public static function getSubscribedEvents(): array
+    public static function getSubscribedEvents()
     {
         return [
             Ticked::class => 'onTicked',
@@ -24,12 +24,12 @@ class CollectorListener implements EventSubscriberInterface
         ];
     }
 
-    public function onTicked(Ticked $event)
+    public function onTicked(Ticked $event): void
     {
         $this->collector->collect($event);
     }
 
-    public function onTerminate(TerminateEvent $event)
+    public function onTerminate(TerminateEvent $event): void
     {
         $this->collector->release();
     }

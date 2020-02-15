@@ -1,4 +1,4 @@
-.PHONY: cs, help, start, stop
+.PHONY: cs, help, start, stop, cc, stan, test
 
 PHP = php 
 SYMFONY = symfony
@@ -25,7 +25,15 @@ cc:
 ##
 
 cs: ## Apply coding standard
+cs: vendor
 	vendor/bin/php-cs-fixer fix
+
+stan: ## phpstan analysis
+stan: vendor
+	vendor/bin/phpstan analyse --no-progress --memory-limit=2G -n -l 7 src/
+
+test: ## run all tests
+test: cs stan
 
 ##
 ## Build
