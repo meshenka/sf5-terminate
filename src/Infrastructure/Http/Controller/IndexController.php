@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Http;
+namespace App\Infrastructure\Http\Controller;
 
 use App\Domain\Tick\Ticker;
 use DateTimeInterface;
